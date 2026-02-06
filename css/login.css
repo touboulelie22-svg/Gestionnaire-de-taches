@@ -32,6 +32,14 @@ main {
 }
 
 
+.login-container {
+    
+    padding: 0 0 20px 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: 520px;
+    max-width: calc(100% - 80px);
+}
 
 .login-container h2 {
     text-align: center;
