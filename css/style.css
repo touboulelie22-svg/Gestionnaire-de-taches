@@ -1,0 +1,19 @@
+body {
+  padding-top: 250px;
+  padding-left: 130px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+a {
+  background-color: #0000CD;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
