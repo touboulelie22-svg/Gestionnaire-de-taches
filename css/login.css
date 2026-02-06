@@ -32,8 +32,8 @@ main {
 }
 
 
-.login-container {
-    
+.container {
+
     padding: 0 0 20px 0;
     border-radius: 0;
     box-shadow: none;
@@ -41,7 +41,7 @@ main {
     max-width: calc(100% - 80px);
 }
 
-.login-container h2 {
+.container h2 {
     text-align: center;
     font-size: 28px;
     margin-bottom: 40px;
@@ -49,18 +49,18 @@ main {
     font-weight: 500;
 }
 
-.form-group {
+.field {
     margin-bottom: 25px;
 }
 
-.form-group label {
+.field label {
     display: block;
     margin-bottom: 8px;
     color: #555555;
     font-size: 14px;
 }
 
-.form-group input {
+.field input {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid #cccccc;

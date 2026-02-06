@@ -9,37 +9,37 @@
 <body>
     <main>
         <h2>Edit Task</h2>
-        <form class="task-form">
-            <div class="form-row">
+        <form class="form">
+            <div class="ligne">
                 <label for="title">Title</label>
                 <input id="title" name="title" type="text" value="" />
             </div>
 
-            <div class="form-row">
+            <div class="ligne">
                 <label for="content">Content</label>
                 <textarea id="content" name="content"></textarea>
             </div>
 
-            <div class="form-row checkbox-row">
+            <div class="ligne">
                 <div>
                     <label>Urgent</label>
-                    <label class="toggle">
+                    <label class="switch">
                         <input type="checkbox" name="urgent">
                         <span class="slider"></span>
                     </label>
                 </div>
 
-                <div style="margin-top:12px;">
+                <div>
                     <label>Important</label>
-                    <label class="toggle">
+                    <label class="switch">
                         <input type="checkbox" name="important">
                         <span class="slider"></span>
                     </label>
                 </div>
             </div>
 
-            <div class="form-row">
-                <button type="submit" class="btn-save">Save</button>
+            <div class="ligne">
+                <button type="submit" class="save">Save</button>
             </div>
         </form>
     </main>
