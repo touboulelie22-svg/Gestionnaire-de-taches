@@ -1,0 +1,28 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment
+.env
+
+# IDEs and editors
+/.idea/
+/.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Composer
+composer.lock
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# PHPStorm
+.idea/
+
+# Public uploads
+/uploads/
