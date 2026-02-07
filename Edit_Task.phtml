@@ -7,41 +7,45 @@
     <link rel="stylesheet" href="css/edit_task.css">
 </head>
 <body>
+    <header>
+        <h1>3WA Tasks</h1>
+    </header>
+    
     <main>
-        <h2>Edit Task</h2>
-        <form class="form">
-            <div class="ligne">
-                <label for="title">Title</label>
-                <input id="title" name="title" type="text" value="" />
-            </div>
+        <div class="container">
+            <h2>Edit Task</h2>
+            <form class="form">
+                <div class="ligne">
+                    <label for="title">Title</label>
+                    <input id="title" name="title" type="text" value="" placeholder ="Enter title"/>  
+                </div>
 
-            <div class="ligne">
-                <label for="content">Content</label>
-                <textarea id="content" name="content"></textarea>
-            </div>
+                <div class="ligne">
+                    <label for="content">Content</label>
+                    <textarea id="content" name="content" placeholder="Enter content"></textarea>
+                </div>
 
-            <div class="ligne">
-                <div>
-                    <label>Urgent</label>
+                <div class="switch-group">
+                    <label class="switch-label">Urgent</label>
                     <label class="switch">
                         <input type="checkbox" name="urgent">
                         <span class="slider"></span>
                     </label>
                 </div>
 
-                <div>
-                    <label>Important</label>
+                <div class="switch-group">
+                    <label class="switch-label">Important</label>
                     <label class="switch">
                         <input type="checkbox" name="important">
                         <span class="slider"></span>
                     </label>
                 </div>
-            </div>
 
-            <div class="ligne">
-                <button type="submit" class="save">Save</button>
-            </div>
-        </form>
+                <div class="ligne">
+                    <button type="submit" class="save">Save</button>
+                </div>
+            </form>
+        </div>
     </main>
 
     <footer>
