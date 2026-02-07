@@ -12,18 +12,6 @@ body {
     flex-direction: column;
 }
 
-header {
-    background-color: #ffffff;
-    padding: 20px 30px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-header h1 {
-    color: #5c6bc0;
-    font-size: 24px;
-    font-weight: 600;
-}
-
 main {
     flex: 1;
     display: flex;
