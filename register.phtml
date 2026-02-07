@@ -1,28 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/register.css" type="text/css" />
-    <title>Register</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./css/register.css" type="text/css" />
+<title>Register</title>
 </head>
 <body>
-   
-   <h1>Register</h1>
-   <div>
-       <p>Welcome in the world of perfect tasks priorization !</p>
-   </div>
-   
-   <form class ="formulaire-register" method="post" action="index.php">
-            <label for="name">Username :</label>
-            <input type="text" id="name" name="name" required><br>
-            
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required><br>
-            
-            <label for="password">Password :</label>
-            <input type="password" id="password" name="password" required><br>
-            
-             <input type="submit" value="Register">
-        </form>
+<h1>Register</h1>
+<div>
+<p>Welcome in the world of perfect tasks priorization !</p>
+</div>
+<form class ="formulaire-register" method="post" action="register.php">
+<label for="name">Username :</label>
+<input type="text" id="name" name="name" required><br>
+<label for="email">Email :</label>
+<input type="email" id="email" name="email" required><br>
+<label for="password">Password :</label>
+<input type="password" id="password" name="password" required><br>
+<input type="submit" value="Register">
+</form>
+<?php if (isset($errors) && !empty($errors)) : ?>
+<?php foreach ($errors as $error) : ?>
+<p><?= $error ?></p>
+<?php endforeach; ?>
+<?php elseif(isset($errors)): ?>
+<p> Inscription réussie !</p>
+<?php endif; ?>
 </body>
 </html>
