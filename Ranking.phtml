@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/ranking.css" type="text/css" />
+    <title>Ranking - 3WA Tasks</title>
+</head>
+<body>
+    <header>
+        <h1>3WA Tasks</h1>
+        <div class="header-icons">
+            <span class="icon">👤</span>
+            <span class="icon">🚪</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Ranking</h2>
+
+            <div class="ranking-list">
+                <?php if (!empty($users)): ?>
+                    <?php foreach ($users as $index => $user): ?>
+                        <?php 
+                            $rank = $index + 1;
+                            $rankClass = "rank-" . $rank;
+                        ?>
+                        <div class="rank-item <?php echo $rankClass; ?>">
+                            <?php if ($rank == 1): ?>
+                                <span class="rank-icon">🥇</span>
+                            <?php elseif ($rank == 2): ?>
+                                <span class="rank-icon">🥈</span>
+                            <?php elseif ($rank == 3): ?>
+                                <span class="rank-icon">🥉</span>
+                            <?php else: ?>
+                                <span class="rank-number">#<?php echo $rank; ?></span>
+                            <?php endif; ?>
+                            <span class="rank-name"><?php echo htmlspecialchars($user['name']); ?></span>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p class="empty">Aucun utilisateur trouvé</p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        ©2024 - 3W Academy
+    </footer>
+</body>
+</html>
