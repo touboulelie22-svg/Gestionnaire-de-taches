@@ -12,6 +12,18 @@ body {
     flex-direction: column;
 }
 
+header {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+    color: #5c6bc0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
 main {
     flex: 1;
     display: flex;
@@ -19,7 +31,17 @@ main {
     align-items: center;
 }
 
-h2 {
+
+.container {
+
+    padding: 0 0 20px 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: 520px;
+    max-width: calc(100% - 80px);
+}
+
+.container h2 {
     text-align: center;
     font-size: 28px;
     margin-bottom: 40px;
@@ -27,28 +49,50 @@ h2 {
     font-weight: 500;
 }
 
-.form {
-    width: 520px;
-    max-width: calc(100% - 80px);
+.ligne {
+    margin-bottom: 25px;
 }
 
-input[type="text"],
+.ligne label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555555;
+    font-size: 14px;
+}
+
+.ligne input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
 textarea {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid #cccccc;
     border-radius: 4px;
     font-size: 14px;
-}
-
-textarea {
     height: 120px;
     resize: none;
+    transition: border-color 0.3s;
+}
+
+.switch-group {
+    margin-bottom: 15px;
+}
+
+.switch-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555555;
+    font-size: 14px;
 }
 
 .switch {
     display: inline-block;
-    margin-left: 8px;
 }
 
 .switch input {
@@ -86,7 +130,8 @@ textarea {
 }
 
 button {
-    padding: 8px 14px;
+    width: 100px;
+    padding: 10px 20px;
     background-color: #5c6bc0;
     color: white;
     border: none;
