@@ -6,11 +6,10 @@ include ('connexion.php');
 $db = connectToDB();
 
 if (!empty($_POST)){
-    if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])){
+    if (isset($_POST['name'], $_POST['password'])){
 
         $name = trim(strip_tags($_POST['name']));
         $password = trim(strip_tags($_POST['password']));
-        $email = trim(strip_tags($_POST['email']));
 
         $stmt = $db->prepare("SELECT * FROM users WHERE name = ?");
         $stmt->execute([$name]);
@@ -19,11 +18,13 @@ if (!empty($_POST)){
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['loggedIn'] = true;
             $_SESSION['user']['name'] = $user['name'];
+            
             header("Location: account.php");
-            exit();
+            exit;
         } else {
             $error = "Invalid username or password.";
         }
     }
 }  
 include ('login.phtml');
+
