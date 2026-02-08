@@ -2,26 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account</title>
-    <link rel="stylesheet" href="css/account.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Compte utilisateur</title>
+    <link rel="stylesheet" href="./css/account.css" type="text/css" />
 </head>
 <body>
 
+    <h1 class="title-account">Account</h1>
+
     <main>
         <div class="container">
-            <h2>Account</h2>
-            <form>
-                <div class="field">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
+            <h2>New Task</h2>
+            <form class="form" method="post" action="account.php">
+                <div class="ligne">
+                    <label for="title">Title</label>
+                    <input id="title" name="title" type="text" value="" placeholder="Enter title"/>  
                 </div>
-                <div class="field">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
+
+                <div class="ligne">
+                    <label for="content">Content</label>
+                    <textarea id="content" name="content" placeholder="Enter content"></textarea>
                 </div>
-                <button type="submit">Update</button>
+
+                <div class="switch-group">
+                    <label class="switch-label">Urgent</label>
+                    <label class="switch">
+                        <input type="checkbox" name="urgent">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="switch-group">
+                    <label class="switch-label">Important</label>
+                    <label class="switch">
+                        <input type="checkbox" name="important">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="ligne">
+                    <button type="submit" class="save">Add</button>
+                </div>
             </form>
+        </div>
+
+        <div class="container">
+            <h2>Your tasks</h2>
+            <table class="account-tasks">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Urgent</th>
+                        <th>Important</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </main>
 
