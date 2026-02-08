@@ -6,25 +6,40 @@
 <title>Register</title>
 </head>
 <body>
-<h1>Register</h1>
+<main>
+<div class="container">
+<h2>Register</h2>
 <div>
 <p>Welcome in the world of perfect tasks priorization !</p>
 </div>
+
 <form class ="formulaire-register" method="post" action="register.php">
+<div class="field">
 <label for="name">Username :</label>
 <input type="text" id="name" name="name" required><br>
+</div>
+<div class="field">
 <label for="email">Email :</label>
 <input type="email" id="email" name="email" required><br>
+</div>
+<div class="field">
 <label for="password">Password :</label>
 <input type="password" id="password" name="password" required><br>
-<input type="submit" value="Register">
+<div>
+<button type="submit">Register</button>
 </form>
+</div>
+</main>
 <?php if (isset($errors) && !empty($errors)) : ?>
 <?php foreach ($errors as $error) : ?>
 <p><?= $error ?></p>
 <?php endforeach; ?>
 <?php elseif(isset($errors)): ?>
-<p> Inscription réussie !</p>
+<p> Inscription réussie ! Veuillez appuyer sur le bouton 3WA Tasks pour revenir sur la page d'accueil et allez sur la page login</p>
 <?php endif; ?>
+<footer>
+<p>©2024 - 3W Academy</p>
+</footer>
+ 
 </body>
 </html>
