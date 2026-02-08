@@ -40,15 +40,7 @@
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-<<<<<<< HEAD
-                    <p class="empty">Aucun utilisateur trouvé</p>
-=======
-<<<<<<< HEAD
-                    <p class="empty">Aucun utilisateur trouvé</p>
-=======
                     <p style="text-align: center; color: #999;">Aucun utilisateur trouvé</p>
->>>>>>> f7fc3e4e034c93f0d5ef7408732710a35b95bf3c
->>>>>>> 7cc2d40306a39fe8ac1b8b53a8832a197cd062fa
                 <?php endif; ?>
             </div>
         </div>
