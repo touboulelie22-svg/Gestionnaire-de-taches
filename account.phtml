@@ -1,64 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Compte utilisateur</title>
-    <link rel="stylesheet" href="./css/account.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/user_account.css" type="text/css" />
+    <title>Account - 3WA Tasks</title>
 </head>
 <body>
 
-    <h1 class="title-account">Account</h1>
+    <header>
+        <a href="account.php" class="logo-link"><h1>3WA Tasks</h1></a>
+        <div class="header-icons">
+            <a href="account.php" class="icon active" title="Mon compte">👤</a>
+            <a href="logout.php" class="icon" title="Déconnexion">🚪</a>
+        </div>
+    </header>
 
     <main>
         <div class="container">
-            <h2>New Task</h2>
-            <form class="form" method="post" action="account.php">
-                <div class="ligne">
-                    <label for="title">Title</label>
-                    <input id="title" name="title" type="text" value="" placeholder="Enter title"/>  
-                </div>
+            <h2>Account</h2>
+            
+            <?php if (isset($error)): ?>
+                <div class="error"><?php echo htmlspecialchars($error); ?></div>
+            <?php endif; ?>
 
-                <div class="ligne">
-                    <label for="content">Content</label>
-                    <textarea id="content" name="content" placeholder="Enter content"></textarea>
-                </div>
+            <div class="account-layout">
+                <!-- Colonne gauche -->
+                <aside class="sidebar">
+                    <div class="profile-section">
+                        <h3><?php echo htmlspecialchars($user['name']); ?></h3>
+                        
+                        <div class="badge <?php echo $badgeClass; ?>">
+                            <span class="badge-medal"><?php echo $badgeIcon; ?></span>
+                            <span class="badge-text"><?php echo $completed; ?> task done !</span>
+                        </div>
+                        
+                        <a href="ranking.php" class="btn-rank">Show rank page</a>
+                        
+                        <div class="user-details">
+                            <p><?php echo htmlspecialchars($user['email']); ?></p>
+                            <p>Registration: <?php echo date('d/m/Y', strtotime($user['created_at'])); ?></p>
+                        </div>
+                        
+                        <a href="delete_user_account.php" class="delete-account" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')">Delete my account</a>
+                    </div>
 
-                <div class="switch-group">
-                    <label class="switch-label">Urgent</label>
-                    <label class="switch">
-                        <input type="checkbox" name="urgent">
-                        <span class="slider"></span>
-                    </label>
-                </div>
+                    <div class="new-task-section">
+                        <h4>New Task</h4>
+                        <form method="POST" action="">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" name="title" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Content</label>
+                                <textarea name="content" rows="4"></textarea>
+                            </div>
+                            
+                            <div class="toggles">
+                                <div class="toggle-row">
+                                    <span>Urgent</span>
+                                    <label class="switch">
+                                        <input type="checkbox" name="is_urgent">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="toggle-row">
+                                    <span>Important</span>
+                                    <label class="switch">
+                                        <input type="checkbox" name="is_important">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" name="add_task" class="btn-add">+</button>
+                        </form>
+                    </div>
+                </aside>
 
-                <div class="switch-group">
-                    <label class="switch-label">Important</label>
-                    <label class="switch">
-                        <input type="checkbox" name="important">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-
-                <div class="ligne">
-                    <button type="submit" class="save">Add</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="container">
-            <h2>Your tasks</h2>
-            <table class="account-tasks">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Content</th>
-                        <th>Urgent</th>
-                        <th>Important</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-            </table>
+                <!-- Colonne droite -->
+                <section class="tasks-section">
+                    <h3>Your tasks</h3>
+                    
+                    <?php if (empty($tasks)): ?>
+                        <p class="no-tasks">No tasks yet</p>
+                    <?php else: ?>
+                        <div class="tasks-list">
+                            <div class="task-header">
+                                <span>Title</span>
+                                <span>Content</span>
+                                <span>Urgent</span>
+                                <span>Important</span>
+                                <span>Actions</span>
+                            </div>
+                            
+                            <?php foreach ($tasks as $task): ?>
+                                <div class="task-item <?php echo $task['is_done'] ? 'done' : ''; ?>">
+                                    <span class="col-title"><?php echo htmlspecialchars($task['title']); ?></span>
+                                    <span class="col-content"><?php echo htmlspecialchars($task['content']); ?></span>
+                                    <span class="col-indicator <?php echo $task['is_urgent'] ? 'active' : ''; ?>"></span>
+                                    <span class="col-indicator <?php echo $task['is_important'] ? 'active' : ''; ?>"></span>
+                                    <div class="col-actions">
+                                        <?php if (!$task['is_done']): ?>
+                                            <a href="?complete=<?php echo $task['id']; ?>" class="btn btn-complete" title="Marquer comme faite">✓</a>
+                                        <?php else: ?>
+                                            <span class="btn btn-complete done">✓</span>
+                                        <?php endif; ?>
+                                        <a href="edit_task.php?id=<?php echo $task['id']; ?>" class="btn btn-edit" title="Modifier">✎</a>
+                                        <a href="?delete=<?php echo $task['id']; ?>" class="btn btn-delete" title="Supprimer" onclick="return confirm('Supprimer cette tâche ?')">🗑</a>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </section>
+            </div>
         </div>
     </main>
 

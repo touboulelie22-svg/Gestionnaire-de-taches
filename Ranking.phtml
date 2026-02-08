@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,20 @@
 <body>
 
     <header>
-        <h1>3WA Tasks</h1>
+        <a href="account.php" class="logo-link"><h1>3WA Tasks</h1></a>
         <div class="header-icons">
-            <span class="icon">👤</span>
-            <span class="icon">🚪</span>
+            <a href="account.php" class="icon" title="Mon compte">👤</a>
+            <a href="logout.php" class="icon" title="Déconnexion">🚪</a>
         </div>
     </header>
 
     <main>
         <div class="container">
             <h2>Ranking</h2>
+
+            <?php if (isset($error)): ?>
+                <p class="error"><?php echo htmlspecialchars($error); ?></p>
+            <?php endif; ?>
 
             <div class="ranking-list">
                 <?php if (!empty($users)): ?>
